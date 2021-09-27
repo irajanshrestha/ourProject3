@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block product %}
+{% comment %} <h1>hello i am product's template</h1> {% endcomment %}
+
+<a class="btn btn-primary btn-lg" href="{% url 'myapp:filter'  %}">filter button</button>
+{% for i in data %}
+
+<div class="card" style="width: 18rem;">
+  <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ i.name }}</h5>
+    <h5 class="card-title">{{ i.quality }}</h5>
+    <h5 class="card-title">{{ i.price }}</h5>
+    <p class="card-text">{{ i.description }}</p>
+    <a href="{% url 'myapp:product' i.id %}" class="btn btn-primary">BUY</a>
+  </div>
+</div>
+
+{% endfor %}
+
+{% endblock product %}
+
+{% comment %} {{ i.name }}: {`{ i.price }}: {{ i.quality }}<br> {% endcomment %}
